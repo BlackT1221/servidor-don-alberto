@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify
 import datetime
 
@@ -13,4 +14,6 @@ def get_repuestos():
 	})
 
 if __name__ == "__main__":
-	app.run()
+	# Lea el puerto de la nube de Render o use el puerto 5000 por defecto
+	port = int(os.environ.get("PORT", 5000))
+	app.run(host="0.0.0.0", port=port)
